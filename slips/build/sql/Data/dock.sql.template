@@ -1,0 +1,6 @@
+﻿use [@initial.catalog@];
+GO
+INSERT INTO Dock(DockName, LocationId, WaterService, ElectricalService) VALUES('Dock A', 1, 1, 1)
+INSERT INTO Dock(DockName, LocationId, WaterService, ElectricalService) VALUES('Dock B', 1, 1, 0)
+INSERT INTO Dock(DockName, LocationId, WaterService, ElectricalService) VALUES('Dock C', 1, 0, 1)
+GO

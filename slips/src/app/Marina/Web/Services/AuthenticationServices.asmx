@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="AuthenticationWebServices.cs" Class="Marina.Web.Services.AuthenticationWebServices" %>

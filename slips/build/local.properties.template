@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<properties>
+	<property name="machine.name" value="MOKHAN" />
+	<property name="framework.dir" value="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727" />
+	<property name="virtual.directory.name" value="marina" />	
+	<property name="run.url" value="http://${environment::get-machine-name()}/${virtual.directory.name}/Default.aspx" />
+	<property name="browser.path" value="D:\program files\mozilla firefox\firefox.exe" />
+	<property name="sql.tools.path" value="D:\program files\microsoft sql server\90\tools\binn\" />
+	<property name="sqlcmd.connectionstring" value="-E" />
+	<property name="sqlcmd.exe"  value="${sql.tools.path}\sqlcmd.exe" />
+	<property name="initial.catalog" value="Marina" />					
+	<property name="config.connectionstring" value="data source=(local);Integrated Security=SSPI;Initial Catalog=${initial.catalog}" />
+	<property name="database.path" value="G:\root\development\databases" />
+	<property name="asp.net.account" value="NT Authority\Network Service"/>
+</properties>

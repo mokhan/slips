@@ -1,0 +1,166 @@
+﻿USE [@initial.catalog@]
+Go
+
+/****************************** CREATE LOCATION TABLE  ***************************************/
+
+CREATE TABLE [dbo].[Location](
+	[LocationId] [int] IDENTITY(1,1) NOT NULL,
+	[LocationName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED 
+(
+	[LocationId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/******************************** CREATE DOCK TABLE  ****************************************/
+
+CREATE TABLE [dbo].[Dock](
+	[DockID] [int] IDENTITY(1,1) NOT NULL,
+	[DockName] [varchar](50) NOT NULL,
+	[LocationId] [int] NOT NULL,
+	[WaterService] [bit] NOT NULL,
+	[ElectricalService] [bit] NOT NULL,
+ CONSTRAINT [Dock_PK] PRIMARY KEY CLUSTERED 
+(
+	[DockID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Dock]  WITH CHECK ADD  CONSTRAINT [FK_Dock_Location] FOREIGN KEY([LocationId])
+REFERENCES [dbo].[Location] ([LocationId])
+GO
+ALTER TABLE [dbo].[Dock] CHECK CONSTRAINT [FK_Dock_Location]
+
+
+/******************************** CREATE SLIP TABLE  ****************************************/
+
+CREATE TABLE [dbo].[Slip](
+	[SlipID] [int] IDENTITY(1000,1) NOT NULL,
+	[SlipWidth] [int] NOT NULL,
+	[SlipLength] [int] NOT NULL,
+	[DockID] [int] NOT NULL,
+ CONSTRAINT [Slip_PK] PRIMARY KEY CLUSTERED 
+(
+	[SlipID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[Slip]  WITH CHECK ADD  CONSTRAINT [Dock_Slip_FK1] FOREIGN KEY([DockID])
+REFERENCES [dbo].[Dock] ([DockID])
+GO
+ALTER TABLE [dbo].[Slip] CHECK CONSTRAINT [Dock_Slip_FK1]
+
+
+/******************************** CREATE LeaseType TABLE  **********************************/
+
+CREATE TABLE [dbo].[LeaseType](
+	[LeaseTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[LeaseTypeName] [varchar](50) NOT NULL,
+	[StandardRateAmount] [decimal](18, 2) NOT NULL,
+ CONSTRAINT [PK_LeaseType] PRIMARY KEY CLUSTERED 
+(
+	[LeaseTypeID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+/******************************** CREATE CUSTOMER TABLE  ***********************************/
+
+CREATE TABLE [dbo].[Customer](
+	[CustomerID] [int] IDENTITY(1000,1) NOT NULL,
+	[FirstName] [varchar](30) NOT NULL,
+	[LastName] [varchar](30) NOT NULL,
+	[Phone] [varchar](14) NOT NULL,
+	[City] [varchar](30) NOT NULL,
+ CONSTRAINT [Customer_PK] PRIMARY KEY CLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/******************************** CREATE BOAT TABLE  ***************************************/
+
+CREATE TABLE [dbo].[Boat](
+	[BoatID] [int] IDENTITY(1000,1) NOT NULL,
+	[RegistrationNumber] [varchar](20) NOT NULL,
+	[Manufacturer] [varchar](50) NOT NULL,
+	[ModelYear] [int] NOT NULL,
+	[Length] [int] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+ CONSTRAINT [Boat_PK] PRIMARY KEY CLUSTERED 
+(
+	[BoatID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[Boat]  WITH CHECK ADD  CONSTRAINT [Customer_Boat_FK1] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Boat] CHECK CONSTRAINT [Customer_Boat_FK1]
+
+
+/******************************** CREATE AUTHORIZE TABLE  **********************************/
+
+CREATE TABLE [dbo].[Authorize](
+	[AuthID] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [varchar](50) NOT NULL,
+	[Password] [varchar](14) NOT NULL,
+	[CustomerID] [int] NOT NULL,
+ CONSTRAINT [PK_Authorize] PRIMARY KEY CLUSTERED 
+(
+	[AuthID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[Authorize]  WITH CHECK ADD  CONSTRAINT [FK_Authorize_Customer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Authorize] CHECK CONSTRAINT [FK_Authorize_Customer]
+
+
+/******************************** CREATE LEASE TABLE  *************************************/
+
+CREATE TABLE [dbo].[Lease](
+	[LeaseID] [int] IDENTITY(1000,1) NOT NULL,
+	[StartDate] [datetime] NOT NULL,
+	[EndDate] [datetime] NOT NULL,
+	[SlipID] [int] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+	[LeaseTypeID] [int] NOT NULL,
+ CONSTRAINT [PK_Lease] PRIMARY KEY CLUSTERED 
+(
+	[LeaseID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[Lease]  WITH CHECK ADD  CONSTRAINT [FK_Lease_Customer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Lease] CHECK CONSTRAINT [FK_Lease_Customer]
+GO
+ALTER TABLE [dbo].[Lease]  WITH CHECK ADD  CONSTRAINT [FK_Lease_LeaseType] FOREIGN KEY([LeaseTypeID])
+REFERENCES [dbo].[LeaseType] ([LeaseTypeID])
+GO
+ALTER TABLE [dbo].[Lease] CHECK CONSTRAINT [FK_Lease_LeaseType]
+GO
+ALTER TABLE [dbo].[Lease]  WITH CHECK ADD  CONSTRAINT [FK_Lease_Slip] FOREIGN KEY([SlipID])
+REFERENCES [dbo].[Slip] ([SlipID])
+GO
+ALTER TABLE [dbo].[Lease] CHECK CONSTRAINT [FK_Lease_Slip]
+GO

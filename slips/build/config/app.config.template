@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<configuration>
+	<appSettings>
+		<add key="LogFileName" value="@path.to.runtime.log4net.config@"/>
+		<add key="ActiveConnection" value ="SqlConnection" />
+	</appSettings>
+	<connectionStrings>
+		<add name="SqlConnection"
+			 connectionString="@config.connectionstring@"
+			 providerName="System.Data.SqlClient"/>   		
+	</connectionStrings>		
+	<system.web>
+		<compilation debug="true">
+			<assemblies>
+				<add assembly="System.Transactions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+			</assemblies>
+		</compilation>
+		<!--<authentication mode="Windows"/>-->
+		<authentication mode="Forms" />
+		<httpHandlers>
+			<!--<add verb="*" path="*.marina" type="Marina.Web.FrontController, Marina"/>
+			<add verb="*" path="*.aspx" type="Marina.Web.FrontController, Marina"/>-->
+		</httpHandlers>		
+		<httpModules>
+			<add name="AuthenticationHttpModule" type="Marina.Web.AuthenticationHttpModule, Marina" />
+			<add name="UnhandledExceptionsHttpModule" type="Marina.Web.UnhandledExceptionsHttpModule, Marina" />
+		</httpModules>		
+	</system.web>		
+</configuration>

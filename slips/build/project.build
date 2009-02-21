@@ -1,0 +1,54 @@
+<project name="Marina">
+	<property name="nant.settings.currentframework" value="net-3.5" /> 
+	<include buildfile="local.properties.xml" />	
+	<include buildfile="project.properties.build" />
+	<include buildfile="project.deploy.build" />
+	<include buildfile="project.test.build" />
+	<include buildfile="project.database.build" />	
+
+	<fileset id="app.lib.references.fileset" >
+		<include name="${app.src.dir}\**\*.cs"/>
+		<exclude name="${app.src.dir}\**\AssemblyInfo.cs" />
+	</fileset>
+
+	<target name="clean">
+		<exec 
+			program="taskkill.exe"
+			commandline="/f /im notepad.exe /fi &quot;STATUS eq RUNNING&quot;"	/>
+		<delete dir="${build.temp.dir}" />
+		<delete dir="${build.deploy.dir}" />
+		<delete dir="${log.dir}" />
+	</target>	
+	
+	<target name="init" depends="clean">	
+		<mkdir dir="${build.temp.dir}" />
+		<mkdir dir="${build.deploy.dir}" />
+		<mkdir dir="${log.dir}" />
+	</target>
+
+	<target name="expand.template.file">
+		<copy file="${target}.template" tofile="${target}" overwrite="true" >
+			<filterchain>
+				<replacetokens>
+					<token key="log.file.name" value="${log.file.name}"/>
+					<token key="log.level" value="${log.level}"/>
+					<token key="path.to.runtime.log4net.config" value="${path.to.runtime.log4net.config}" />
+					<token key="initial.catalog" value="${initial.catalog}" />
+					<token key="database.path" value="${database.path}" />
+					<token key="config.connectionstring" value="${config.connectionstring}"/>
+					<token key="asp.net.account" value="${asp.net.account}"/>
+				</replacetokens>
+			</filterchain>
+		</copy>
+	</target>
+
+	<target name="compile" depends="init">
+		<csc output="${compile.dir}\${app.lib}" target="library" debug="${debug}">
+			<sources refid="app.lib.references.fileset" />
+			<references>
+				<include name="${build.lib.dir}\**\*.dll" />
+			</references>
+		</csc>
+	</target>
+
+</project>

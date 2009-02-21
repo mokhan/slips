@@ -1,0 +1,53 @@
+﻿<project name="">
+	<property name="build.sql.dir" value="${build.dir}\sql" />
+	<property name="build.sql.data.dir" value="${build.sql.dir}\data" />
+	<property name="build.sql.ddl.dir" value="${build.sql.dir}\ddl" />
+
+	<fileset id="sql.ddl.files">
+		<include name="${build.sql.ddl.dir}\database.sql" asis="true" />
+		<include name="${build.sql.ddl.dir}\tables.sql" asis="true" />
+		<include name="${build.sql.ddl.dir}\security.sql" asis="true" />
+	</fileset>
+
+	<fileset id="sql.data.files">
+		<include name="${build.sql.data.dir}\location.sql" asis="true" />
+		<include name="${build.sql.data.dir}\dock.sql" asis="true" />
+		<include name="${build.sql.data.dir}\slip.sql" asis="true" />
+		<include name="${build.sql.data.dir}\leasetype.sql" asis="true" />
+		<include name="${build.sql.data.dir}\customer.sql" asis="true" />
+		<include name="${build.sql.data.dir}\boat.sql" asis="true" />
+		<include name="${build.sql.data.dir}\authorize.sql" asis="true" />
+		<include name="${build.sql.data.dir}\lease.sql" asis="true" />
+	</fileset>
+
+	<target name="run.sql.file">
+		<echo message="Executing... ${target}" />
+		<exec program="${sqlcmd.exe}"
+			  workingdir="${base.dir}"
+			  commandline="${sqlcmd.connectionstring} -b -i ${target}" />
+	</target>
+	
+	<target name="run.sql.template" depends="expand.template.file, run.sql.file"/>
+	
+	<target name="build.db">
+		<foreach item="File" property="target">
+			<in>
+				<items refid="sql.ddl.files"/>
+			</in>
+			<do>
+				<call target="run.sql.template"/>
+			</do>
+		</foreach>
+	</target>
+
+	<target name="load.data" depends="build.db">
+		<foreach item="File" property="target">
+			<in>
+				<items refid="sql.data.files"/>
+			</in>
+			<do>
+				<call target="run.sql.template"/>
+			</do>
+		</foreach>
+	</target>
+</project>

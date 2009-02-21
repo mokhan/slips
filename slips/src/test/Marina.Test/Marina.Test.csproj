@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9BCEEBA-F4D1-4057-8070-5EB1640D618D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marina.Test</RootNamespace>
+    <AssemblyName>Marina.Test</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\lib\log4net\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MbUnit.Framework, Version=1.0.2700.29885, Culture=neutral, PublicKeyToken=5e72ecd30bc408d5">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\tools\mbunit\bin\MbUnit.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.3.0.906, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\tools\rhino.mocks\bin\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Integration\DataAccess\Mappers\BoatDataMapperTest.cs" />
+    <Compile Include="Integration\DataAccess\Mappers\CustomerDataMapperTest.cs" />
+    <Compile Include="Integration\DataAccess\Mappers\LeaseDataMapperTest.cs" />
+    <Compile Include="Integration\DataAccess\Mappers\RegistrationDataMapperTest.cs" />
+    <Compile Include="Integration\DataAccess\Repositories\DockRepositoryTest.cs" />
+    <Compile Include="Integration\DataAccess\Repositories\SlipRepositoryTest.cs" />
+    <Compile Include="Integration\DataAccess\Utility\BoatMother.cs" />
+    <Compile Include="Integration\DataAccess\Utility\CustomerMother.cs" />
+    <Compile Include="Integration\DataAccess\Utility\LeaseMother.cs" />
+    <Compile Include="Integration\DataAccess\Utility\SlipMother.cs" />
+    <Compile Include="Integration\Task\CatalogTasksTest.cs" />
+    <Compile Include="Unit\DataAccess\DatabaseCommandTest.cs" />
+    <Compile Include="Unit\DataAccess\DatabaseConfigurationTest.cs" />
+    <Compile Include="Unit\DataAccess\DatabaseConnectionTest.cs" />
+    <Compile Include="Unit\DataAccess\DatabaseGatewayTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\DataAccess\Mappers\CustomerDataMapperTest.cs" />
+    <Compile Include="Unit\DataAccess\Repositories\CustomerRepositoryTest.cs" />
+    <Compile Include="Unit\DataAccess\Repositories\DockRepositoryTest.cs" />
+    <Compile Include="Unit\DataAccess\Repositories\IdentityMapTest.cs" />
+    <Compile Include="Unit\DataAccess\Repositories\SlipRepositoryTest.cs" />
+    <Compile Include="Unit\Domain\CustomerRegistrationTest.cs" />
+    <Compile Include="Unit\Domain\CustomerTest.cs" />
+    <Compile Include="Unit\Domain\DockTest.cs" />
+    <Compile Include="Unit\Domain\LeaseDurationTest.cs" />
+    <Compile Include="Unit\Domain\SlipTest.cs" />
+    <Compile Include="Unit\Domain\UtilitiesTest.cs" />
+    <Compile Include="Unit\Infrastructure\Logging\Interfaces\LogTest.cs" />
+    <Compile Include="Unit\Infrastructure\Logging\TextWriterLogging\TextWriterLogFactoryTest.cs" />
+    <Compile Include="Unit\Infrastructure\Logging\TextWriterLogging\TextWriterLogTest.cs" />
+    <Compile Include="Unit\Infrastructure\TransformTest.cs" />
+    <Compile Include="Unit\Presentation\AvailableSlipsPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\CurrentLeasesPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\CustomerRegistrationPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\DockPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\LeaseSlipPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\LoginPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\Mappers\CustomerRegistrationPresentationMapperTest.cs" />
+    <Compile Include="Unit\Presentation\Mappers\LoginCredentialsMapperTest.cs" />
+    <Compile Include="Unit\Presentation\Mappers\UpdateRegistrationPresentationMapperTest.cs" />
+    <Compile Include="Unit\Presentation\PayloadKeyTest.cs" />
+    <Compile Include="Unit\Presentation\RegisterBoatPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\UpdateRegistrationPresenterTest.cs" />
+    <Compile Include="Unit\Presentation\ViewRegisteredBoatsPresenterTest.cs" />
+    <Compile Include="Unit\Task\CatalogTasksTest.cs" />
+    <Compile Include="Unit\Task\LeaseTasksTest.cs" />
+    <Compile Include="Unit\Task\RegistrationTasksTest.cs" />
+    <Compile Include="Unit\Web\Commands\AvailableSlipsCommandTest.cs" />
+    <Compile Include="Unit\Web\Handlers\RequestHandlerSpecificationTest.cs" />
+    <Compile Include="Unit\Web\Handlers\RequestHandlerTest.cs" />
+    <Compile Include="Unit\Web\Views\Pages\AvailableSlipsWebViewTest.cs" />
+    <Compile Include="Unit\Web\Views\ViewTest.cs" />
+    <Compile Include="Utility\ObjectMother.cs" />
+    <Compile Include="Utility\RunInRealContainerAttribute.cs" />
+    <Compile Include="Utility\RunInRealContainerRunInvoker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\Marina\Marina.csproj">
+      <Project>{F9AF658A-2A26-49DE-A964-7A846A8DCC2A}</Project>
+      <Name>Marina</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Unit\DataAccess\Builders\" />
+    <Folder Include="Unit\Infrastructure\Logging\Log4Net\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

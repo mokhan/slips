@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="LeaseWebServices.cs" Class="Marina.Web.Services.LeaseWebServices" %>

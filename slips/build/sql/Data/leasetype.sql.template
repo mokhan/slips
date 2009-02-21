@@ -1,0 +1,7 @@
+﻿use [@initial.catalog@];
+GO
+INSERT INTO LeaseType(LeaseTypeName, StandardRateAmount) VALUES('Daily', 25.50)
+INSERT INTO LeaseType(LeaseTypeName, StandardRateAmount) VALUES('Weekly', 145.50)
+INSERT INTO LeaseType(LeaseTypeName, StandardRateAmount) VALUES('Monthly', 500.00)
+INSERT INTO LeaseType(LeaseTypeName, StandardRateAmount) VALUES('Yearly', 5000.00)
+GO

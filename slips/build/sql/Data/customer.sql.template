@@ -1,0 +1,4 @@
+﻿use [@initial.catalog@];
+GO
+INSERT INTO Customer(FirstName,LastName,Phone,City) VALUES('John','Doe','555-545-1212','Phoenix');
+GO

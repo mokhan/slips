@@ -1,0 +1,5 @@
+﻿use [@initial.catalog@];
+GO
+INSERT INTO Boat(RegistrationNumber,Manufacturer,ModelYear,Length,CustomerID)  
+VALUES('AR8373-223-2','Yamaha',2005,18,1000)
+GO

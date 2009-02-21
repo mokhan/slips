@@ -1,0 +1,15 @@
+﻿/**************************************** PART 1 CREATE DATABASE ******************************/
+
+USE [master]
+GO
+
+IF EXISTS(SELECT * FROM Sysdatabases WHERE NAME LIKE '@initial.catalog@')
+  DROP DATABASE [@initial.catalog@]
+  GO
+
+/****** Object:  Database [InlandMarina]    Script Date: 11/12/2007 08:39:11 ******/
+CREATE DATABASE [@initial.catalog@] ON  PRIMARY 
+( NAME = N'@initial.catalog@', FILENAME = N'@database.path@\@initial.catalog@.mdf' , SIZE = 2240KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'@initial.catalog@_log', FILENAME = N'@database.path@\@initial.catalog@.ldf' , SIZE = 768KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO

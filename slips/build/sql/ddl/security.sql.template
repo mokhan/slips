@@ -1,0 +1,40 @@
+﻿use [@initial.catalog@]
+GO
+IF NOT EXISTS (SELECT * FROM sys.server_principals WHERE name = N'@asp.net.account@')
+CREATE LOGIN [@asp.net.account@] FROM WINDOWS WITH DEFAULT_DATABASE=[@initial.catalog@]
+GO
+
+if not exists (select * from dbo.sysusers where name = N'@asp.net.account@' and uid < 16382)
+	EXEC sp_grantdbaccess N'@asp.net.account@', N'@asp.net.account@'
+GO
+
+if not exists (select * from dbo.sysusers where name = N'WebUser' and uid > 16399)
+	EXEC sp_addrole N'WebUser'
+GO
+
+exec sp_addrolemember N'WebUser', N'@asp.net.account@'
+GO
+
+use [@initial.catalog@]
+GO
+
+GRANT SELECT ON Dock TO WebUser;
+GRANT SELECT ON LeaseType TO WebUser;
+GRANT SELECT ON Location TO WebUser;
+GRANT SELECT ON Slip TO WebUser;
+GRANT SELECT ON Lease TO WebUser;
+GRANT SELECT ON Customer TO WebUser;
+GRANT SELECT ON Authorize TO WebUser;
+GRANT SELECT ON Boat TO WebUser;
+
+GRANT UPDATE ON Customer TO WebUser;
+GRANT UPDATE ON Authorize TO WebUser;
+
+GRANT INSERT ON Authorize TO WebUser;
+GRANT INSERT ON Boat TO WebUser;
+GRANT INSERT ON Customer TO WebUser;
+GRANT INSERT ON Lease TO WebUser;
+
+GRANT DELETE ON Boat TO WebUser;
+GRANT DELETE ON Lease TO WebUser;
+GO

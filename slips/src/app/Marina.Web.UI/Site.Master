@@ -1,0 +1,89 @@
+<%@ Import namespace="Marina.Web.Views"%>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Marina.Web.UI.Site" EnableViewState="false" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Inland Marina Ltd</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <link rel="stylesheet" type="text/css" href="style/colour.css" />
+  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+  <div id="main">
+    <div id="links">
+      <a href="Login.aspx">login</a>
+    </div>
+    
+    <div id="logo"><h1>Inland Marina Ltd</h1></div>    
+    <div id="content">
+      <div id="menu">
+        <ul>
+          <li><a href="Default.aspx">home</a></li>
+          <li><a href="Registration.aspx">register</a></li>
+          <li><a href="AvailableSlips.aspx">available slips</a></li>
+          <li><a href="ContactUs.aspx">contact us</a></li>
+        </ul>
+      </div>
+      
+      <div id="column1">
+        <div class="sidebaritem">
+          <div class="sbihead">
+            <h1>site actions</h1>
+          </div>
+          <div class="sbilinks">
+            <ul>              
+              <li><a href="<%= WebViews.RegisterBoat.Name( ) %>">register boat</a></li>
+              <li><a href="<%= WebViews.UpdateCustomerRegistration.Name( ) %>">update registration</a></li>
+              <li><a href="<%= WebViews.CurrentLeases.Name( ) %>">current leases</a></li>
+            </ul>
+          </div>
+        </div>        
+                    
+        <div class="sidebaritem">
+          <div class="sbihead">
+            <h1>additional information</h1>
+          </div>
+          <div class="sbicontent">
+            <p>
+                Inland Marina Ltd, is the largest marina on Inland Lake and has the capacity to house 150 boats 
+                with plans to add another dock bringing their total capacity to 200 boats.  We are currently concluding 
+                negotiations to purchase a large marina facility in San Diego.
+            </p>
+          </div>
+        </div>
+        <div class="sidebaritem">
+          <div class="sbihead">
+            <h1>Web Services API</h1>
+          </div>
+          <div class="sbilinks">
+            <ul>              
+              <li><a href="WebServicesAPI.aspx">Web Services API</a></li>
+            </ul>
+          </div>
+        </div>        
+        
+      </div>
+      
+      <div id="column2">
+        <form id="form2" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">                
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+      </div>
+      
+    </div>
+    
+    <div id="footer">
+      copyright &copy; 2008 <a href="http://mokhan.ca">mo khan</a> | 
+      <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> | 
+      <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+      <a href="http://www.dcarter.co.uk">design by dcarter</a>
+    </div>
+    
+  </div>
+</body>
+</html>

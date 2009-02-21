@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9FEDAC7-58CA-4DEA-A5A8-6FF94CC52A87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marina.Build</RootNamespace>
+    <AssemblyName>Marina.Build</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build.bat" />
+    <None Include="config\app.config.template" />
+    <None Include="config\log4net.config.xml.template" />
+    <None Include="config\windsor.config.xml.template" />
+    <None Include="project.database.build" />
+    <None Include="lib\castle\bin\external-dependencies.zip" />
+    <None Include="project.build" />
+    <None Include="project.deploy.build" />
+    <None Include="sql\original.sql.template" />
+    <None Include="sql\Data\authorize.sql.template" />
+    <None Include="sql\Data\boat.sql.template" />
+    <None Include="sql\Data\customer.sql.template" />
+    <None Include="sql\Data\dock.sql.template" />
+    <None Include="sql\Data\lease.sql.template" />
+    <None Include="sql\Data\leasetype.sql.template" />
+    <None Include="sql\Data\location.sql.template" />
+    <None Include="sql\Data\slip.sql.template" />
+    <None Include="sql\ddl\database.sql.template" />
+    <None Include="sql\ddl\tables.sql.template" />
+    <None Include="tools\mbunit\bin\MbUnit.Cons.exe.config" />
+    <None Include="tools\mbunit\bin\MbUnit.GUI.exe.config" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\autorunner.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\combinatorialtest.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\datafixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\model.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\processtestfixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\rowtest.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\state.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\submodel.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\test.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\testexpectedexception.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\testfixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\testsuitefixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\typefixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\typefixturewithproviderfactory.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitCSharpSnippets\usingmbunit.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\autorunner.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\combinatorialtest.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\datafixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\model.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\processtestfixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\rowtest.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\state.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\submodel.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\test.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\testexpectedexception.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\testfixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\testsuitefixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\typefixture.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\typefixturewithproviderfactory.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitVBSnippets\usingmbunit.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitXMLSnippets\msbuild.snippet" />
+    <None Include="tools\mbunit\bin\VSSnippets\MbUnitXMLSnippets\nant.snippet" />
+    <None Include="tools\nant\bin\MSITaskErrors.mst" />
+    <None Include="tools\nant\bin\MSITaskTemplate.msi" />
+    <None Include="tools\nant\bin\MSMTaskErrors.mst" />
+    <None Include="tools\nant\bin\MSMTaskTemplate.msm" />
+    <None Include="tools\nant\bin\NAnt.exe.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\castle\bin\Castle.ActiveRecord.dll" />
+    <Content Include="lib\castle\bin\Castle.ActiveRecord.xml" />
+    <Content Include="lib\castle\bin\Castle.Components.Binder.dll" />
+    <Content Include="lib\castle\bin\Castle.Components.Binder.xml" />
+    <Content Include="lib\castle\bin\Castle.Components.Common.EmailSender.dll" />
+    <Content Include="lib\castle\bin\Castle.Components.Common.EmailSender.xml" />
+    <Content Include="lib\castle\bin\Castle.Components.Common.TemplateEngine.dll" />
+    <Content Include="lib\castle\bin\Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine.dll" />
+    <Content Include="lib\castle\bin\Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine.xml" />
+    <Content Include="lib\castle\bin\Castle.Components.Common.TemplateEngine.xml" />
+    <Content Include="lib\castle\bin\Castle.Components.DictionaryAdapter.dll" />
+    <Content Include="lib\castle\bin\Castle.Components.DictionaryAdapter.xml" />
+    <Content Include="lib\castle\bin\Castle.Components.Validator.dll" />
+    <Content Include="lib\castle\bin\Castle.Components.Validator.pdb" />
+    <Content Include="lib\castle\bin\Castle.Components.Validator.xml" />
+    <Content Include="lib\castle\bin\Castle.Core.dll" />
+    <Content Include="lib\castle\bin\Castle.Core.xml" />
+    <Content Include="lib\castle\bin\Castle.DynamicProxy.dll" />
+    <Content Include="lib\castle\bin\Castle.DynamicProxy.xml" />
+    <Content Include="lib\castle\bin\Castle.DynamicProxy2.dll" />
+    <Content Include="lib\castle\bin\Castle.DynamicProxy2.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.ActiveRecordIntegration.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.ActiveRecordIntegration.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.AutomaticTransactionManagement.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.AutomaticTransactionManagement.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.BatchRegistration.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.BatchRegistration.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Cache.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Cache.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Db4oIntegration.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Db4oIntegration.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.DynamicLoader.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.DynamicLoader.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.IBatisNetIntegration.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.IBatisNetIntegration.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Logging.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Logging.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.NHibernateIntegration.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.NHibernateIntegration.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Prevalence.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Prevalence.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Remoting.TestComponents.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Remoting.TestComponents.xml" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Synchronize.dll" />
+    <Content Include="lib\castle\bin\Castle.Facilities.Synchronize.xml" />
+    <Content Include="lib\castle\bin\Castle.MicroKernel.dll" />
+    <Content Include="lib\castle\bin\Castle.MicroKernel.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.ActiveRecordScaffold.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.ActiveRecordScaffold.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.ActiveRecordSupport.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.ActiveRecordSupport.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.Framework.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.Framework.Views.NVelocity.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.Framework.Views.NVelocity.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.Framework.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.JSONSupport.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.JSONSupport.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.TestSupport.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.TestSupport.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.TransformFilters.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.TransformFilters.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.Views.Brail.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.Views.Brail.xml" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.WindsorExtension.dll" />
+    <Content Include="lib\castle\bin\Castle.MonoRail.WindsorExtension.xml" />
+    <Content Include="lib\castle\bin\Castle.Services.Logging.Log4netIntegration.dll" />
+    <Content Include="lib\castle\bin\Castle.Services.Logging.Log4netIntegration.xml" />
+    <Content Include="lib\castle\bin\Castle.Services.Logging.NLogIntegration.dll" />
+    <Content Include="lib\castle\bin\Castle.Services.Logging.NLogIntegration.xml" />
+    <Content Include="lib\castle\bin\Castle.Services.Transaction.dll" />
+    <Content Include="lib\castle\bin\Castle.Services.Transaction.xml" />
+    <Content Include="lib\castle\bin\Castle.VSNetIntegration.CastleWizards.dll" />
+    <Content Include="lib\castle\bin\Castle.VSNetIntegration.CastleWizards.xml" />
+    <Content Include="lib\castle\bin\Castle.Windsor.dll" />
+    <Content Include="lib\castle\bin\Castle.Windsor.xml" />
+    <Content Include="lib\log4net\bin\log4net.dll" />
+    <Content Include="lib\log4net\bin\log4net.xml" />
+    <None Include="local.properties.template" />
+    <None Include="project.properties.build" />
+    <None Include="project.test.build" />
+    <None Include="sql\ddl\security.sql.template" />
+    <Content Include="tools\mbunit\bin\log4net.dll" />
+    <Content Include="tools\mbunit\bin\MbUnit.AddIn.dll" />
+    <Content Include="tools\mbunit\bin\MbUnit.Cons.exe" />
+    <Content Include="tools\mbunit\bin\MbUnit.Framework.2.0.dll" />
+    <Content Include="tools\mbunit\bin\MbUnit.Framework.dll" />
+    <Content Include="tools\mbunit\bin\MbUnit.GUI.exe" />
+    <Content Include="tools\mbunit\bin\MbUnit.MSBuild.Tasks.dll" />
+    <Content Include="tools\mbunit\bin\MbUnit.Tasks.dll" />
+    <Content Include="tools\mbunit\bin\NAnt.Core.dll" />
+    <Content Include="tools\mbunit\bin\NGraphviz.dll" />
+    <Content Include="tools\mbunit\bin\NGraphviz.Helpers.dll" />
+    <Content Include="tools\mbunit\bin\NGraphviz.Layout.dll" />
+    <Content Include="tools\mbunit\bin\QuickGraph.Algorithms.dll" />
+    <Content Include="tools\mbunit\bin\QuickGraph.Algorithms.Graphviz.dll" />
+    <Content Include="tools\mbunit\bin\QuickGraph.dll" />
+    <Content Include="tools\mbunit\bin\Refly.dll" />
+    <Content Include="tools\mbunit\bin\TestDriven.Framework.dll" />
+    <Content Include="tools\mbunit\bin\TestFu.dll" />
+    <Content Include="tools\mbunit\bin\uninst.exe" />
+    <Content Include="tools\mbunit\bin\XsdTidy.exe" />
+    <Content Include="tools\nant\bin\CollectionGen.dll" />
+    <Content Include="tools\nant\bin\Interop.MsmMergeTypeLib.dll" />
+    <Content Include="tools\nant\bin\Interop.StarTeam.dll" />
+    <Content Include="tools\nant\bin\Interop.WindowsInstaller.dll" />
+    <Content Include="tools\nant\bin\lib\ICSharpCode.SharpCvsLib.Console.dll" />
+    <Content Include="tools\nant\bin\lib\ICSharpCode.SharpCvsLib.dll" />
+    <Content Include="tools\nant\bin\lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="tools\nant\bin\lib\mono\1.0\NDoc.Core.dll" />
+    <Content Include="tools\nant\bin\lib\mono\1.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="tools\nant\bin\lib\mono\1.0\NDoc.ExtendedUI.dll" />
+    <Content Include="tools\nant\bin\lib\mono\1.0\nunit.core.dll" />
+    <Content Include="tools\nant\bin\lib\mono\1.0\nunit.framework.dll" />
+    <Content Include="tools\nant\bin\lib\mono\1.0\nunit.util.dll" />
+    <Content Include="tools\nant\bin\lib\mono\2.0\NDoc.Core.dll" />
+    <Content Include="tools\nant\bin\lib\mono\2.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="tools\nant\bin\lib\mono\2.0\NDoc.ExtendedUI.dll" />
+    <Content Include="tools\nant\bin\lib\mono\2.0\nunit.core.dll" />
+    <Content Include="tools\nant\bin\lib\mono\2.0\nunit.framework.dll" />
+    <Content Include="tools\nant\bin\lib\mono\2.0\nunit.util.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.0\NDoc.Core.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.0\NDoc.ExtendedUI.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.0\nunit.core.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.0\nunit.framework.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.0\nunit.util.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.1\NDoc.Core.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.1\NDoc.Documenter.Msdn.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.1\NDoc.ExtendedUI.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.1\nunit.core.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.1\nunit.framework.dll" />
+    <Content Include="tools\nant\bin\lib\net\1.1\nunit.util.dll" />
+    <Content Include="tools\nant\bin\lib\net\2.0\NDoc.Core.dll" />
+    <Content Include="tools\nant\bin\lib\net\2.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="tools\nant\bin\lib\net\2.0\NDoc.ExtendedUI.dll" />
+    <Content Include="tools\nant\bin\lib\net\2.0\nunit.core.dll" />
+    <Content Include="tools\nant\bin\lib\net\2.0\nunit.framework.dll" />
+    <Content Include="tools\nant\bin\lib\net\2.0\nunit.util.dll" />
+    <Content Include="tools\nant\bin\lib\NUnitCore.dll" />
+    <Content Include="tools\nant\bin\log4net.dll" />
+    <Content Include="tools\nant\bin\NAnt.CompressionTasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.CompressionTasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.Contrib.Tasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.Contrib.Tasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.Core.dll" />
+    <Content Include="tools\nant\bin\NAnt.Core.xml" />
+    <Content Include="tools\nant\bin\NAnt.DotNetTasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.DotNetTasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.exe" />
+    <Content Include="tools\nant\bin\NAnt.MSNetTasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.MSNetTasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.NUnit.dll" />
+    <Content Include="tools\nant\bin\NAnt.NUnit.xml" />
+    <Content Include="tools\nant\bin\NAnt.NUnit1Tasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.NUnit1Tasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.NUnit2Tasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.NUnit2Tasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.SourceControlTasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.SourceControlTasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.VisualCppTasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.VisualCppTasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.VSNetTasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.VSNetTasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.Win32Tasks.dll" />
+    <Content Include="tools\nant\bin\NAnt.Win32Tasks.xml" />
+    <Content Include="tools\nant\bin\NAnt.xml" />
+    <Content Include="tools\nant\bin\NDoc.Documenter.NAnt.dll" />
+    <Content Include="tools\nant\bin\scvs.exe" />
+    <Content Include="tools\nant\bin\SLiNgshoT.Core.dll" />
+    <Content Include="tools\nant\bin\SLiNgshoT.exe" />
+    <Content Include="tools\nant\bin\SourceSafe.Interop.dll" />
+    <Content Include="tools\rhino.mocks\bin\Rhino.Mocks.dll" />
+    <Content Include="tools\rhino.mocks\bin\Rhino.Mocks.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

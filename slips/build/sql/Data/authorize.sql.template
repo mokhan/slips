@@ -1,0 +1,4 @@
+﻿use [@initial.catalog@];
+GO
+INSERT INTO Authorize(UserName,Password,CustomerID) VALUES('jdoe','p@ssword',1000)
+GO

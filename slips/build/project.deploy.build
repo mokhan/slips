@@ -1,0 +1,109 @@
+﻿<project name="project.deploy">
+	<property name="nant.contrib" value="${build.tools.dir}\nant\bin\NAnt.Contrib.Tasks.dll"/>
+	
+	<target name="web.clean">
+		<delete dir="${build.deploy.dir}" />
+	</target>
+	
+	<target name="web.init" depends="web.clean">
+		<mkdir dir="${build.deploy.dir}\source\bin" />
+		<mkdir dir="${build.deploy.dir}\app" />
+	</target>
+	
+	<target name="deploy.compile">
+		<property name="compile.dir" value="${build.temp.dir}" />
+		<call target="compile"/>
+	</target>
+
+	<target name="prep.dist.web" depends="web.init">		
+		<property name="target" value="${log4net.config}"/>
+		<call target="expand.template.file"/>
+
+		<property name="path.to.runtime.log4net.config" value="${build.deploy.dir}\app\log4net.config.xml" />
+		<property name="target" value="${app.config}"/>
+		<call target="expand.template.file"/>
+
+		<property name="target" value="${windsor.config}"/>
+		<call target="expand.template.file"/>
+
+		<copy todir="${build.deploy.dir}\source\bin" flatten="true">
+			<fileset>
+				<include name="${build.temp.dir}\${app.lib}" />
+				<include name="${build.lib.dir}\log4net\bin\log4net.dll" />
+				<include name="${build.lib.dir}\castle\bin\*.dll" />
+			</fileset>
+		</copy>
+
+		<copy todir="${build.deploy.dir}\source" flatten="false">
+			<fileset basedir="${app.src.web.ui.dir}">
+				<include name="**\*.aspx" />
+				<include name="**\*.cs" />
+				<include name="**\*.png" />
+				<include name="**\*.jpg" />
+				<include name="**\*.css" />
+				<include name="**\*.Master" />
+				<include name="**\*.asax" />
+				<include name="${log4net.config}" />
+				<include name="${windsor.config}" />
+				<exclude name="Properties\**\*.*" />				
+			</fileset>
+		</copy>
+
+		<copy todir="${build.deploy.dir}\source\services" flatten="true">
+			<fileset basedir="${app.src.dir}\Marina\Web\Services">
+				<include name="**\*.asmx" />
+			</fileset>
+		</copy>
+
+		<copy file="${app.config}" tofile="${build.deploy.dir}\source\web.config" />
+			
+	</target>
+
+	<target name="dist.web" depends="deploy.compile, prep.dist.web">
+		<exec program="aspnet_compiler.exe"
+			  basedir="${framework.dir}"
+			  workingdir="${build.deploy.dir}\source"
+			  commandline="-v /${virtual.directory.name} -p ${build.deploy.dir}\source ${build.deploy.dir}\app" 
+			  verbose="true" />
+	</target>
+
+	<target name="register.virtual.directory">
+		<loadtasks assembly="${nant.contrib}" />
+
+		<echo message="creating virtual directory... ${virtual.directory.name} @ ${build.deploy.dir}\app" />
+		<mkiisdir
+				  iisserver="${machine.name}"
+				  dirpath="${build.deploy.dir}\app"
+				  vdirname="${virtual.directory.name}"
+				  appfriendlyname="${virtual.directory.name}"
+				  verbose="true" />
+
+		<!--http://www.persistall.com/archive/2007/06/11/Nant-Task-for-Creating-IIS-Application-Mappings.aspx-->
+		<!--		<loadtasks assembly="${build.tools.dir}\nant\bin\Vitreo.Nant.dll" />
+		<iisappmap
+			vdirname="${virtual.directory.name}"
+			extension=".store"
+			executable="${root.drive}\windows\microsoft.net\framework\v2.0.50727\aspnet_isapi.dll"
+			verbs="GET,POST"
+			checkfileexists="false" />			-->
+	</target>
+
+	<target name="unregister.virtual.directory">
+		<loadtasks assembly="${nant.contrib}" />
+		<deliisdir iisserver="${machine.name}" vdirname="${virtual.directory.name}" />
+	</target>
+
+	<target name="run" depends="dist.web">
+		<call target="register.virtual.directory" />
+		<exec program="${browser.path}" commandline="${run.url}" />
+		<call target="unregister.virtual.directory" />
+		<call target="kill.aspnet" />		
+	</target>
+
+	<target name="kill.aspnet">
+		<exec program="taskkill.exe"
+			  basedir="${environment::get-folder-path('System')}"
+			  commandline="/F /IM aspnet_wp.exe"/>		
+	</target>
+		
+</project>

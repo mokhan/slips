@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9AF658A-2A26-49DE-A964-7A846A8DCC2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marina</RootNamespace>
+    <AssemblyName>Marina</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\lib\castle\bin\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\lib\castle\bin\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\lib\castle\bin\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\lib\castle\bin\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\build\lib\log4net\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\Builders\DatabaseInsert.cs" />
+    <Compile Include="DataAccess\Builders\DatabaseSelect.cs" />
+    <Compile Include="DataAccess\Builders\DatabaseDelete.cs" />
+    <Compile Include="DataAccess\Builders\DatabaseUpdate.cs" />
+    <Compile Include="DataAccess\Builders\IDeleteQueryBuilder.cs" />
+    <Compile Include="DataAccess\Builders\IInsertQueryBuilder.cs" />
+    <Compile Include="DataAccess\Builders\IJoin.cs" />
+    <Compile Include="DataAccess\Builders\IQueryBuilder.cs" />
+    <Compile Include="DataAccess\Builders\ISelectQueryBuilder.cs" />
+    <Compile Include="DataAccess\Builders\IUpdateQueryBuilder.cs" />
+    <Compile Include="DataAccess\Builders\Query.cs" />
+    <Compile Include="DataAccess\Builders\SqlQuery.cs" />
+    <Compile Include="DataAccess\Builders\WhereClause.cs" />
+    <Compile Include="DataAccess\DatabaseColumn.cs" />
+    <Compile Include="DataAccess\DatabaseCommand.cs" />
+    <Compile Include="DataAccess\DatabaseCommandParameter.cs" />
+    <Compile Include="DataAccess\DatabaseConfiguration.cs" />
+    <Compile Include="DataAccess\DatabaseConnection.cs" />
+    <Compile Include="DataAccess\DatabaseConnectionFactory.cs" />
+    <Compile Include="DataAccess\DatabaseGateway.cs" />
+    <Compile Include="DataAccess\DatabaseProviderFactory.cs" />
+    <Compile Include="DataAccess\DatabaseRow.cs" />
+    <Compile Include="DataAccess\IDatabaseCommand.cs" />
+    <Compile Include="DataAccess\IDatabaseConfiguration.cs" />
+    <Compile Include="DataAccess\IDatabaseConnection.cs" />
+    <Compile Include="DataAccess\IDatabaseConnectionFactory.cs" />
+    <Compile Include="DataAccess\IDatabaseGateway.cs" />
+    <Compile Include="DataAccess\IDatabaseProviderFactory.cs" />
+    <Compile Include="DataAccess\IDatabaseRow.cs" />
+    <Compile Include="DataAccess\IdentityMap.cs" />
+    <Compile Include="DataAccess\IIdentityMap.cs" />
+    <Compile Include="DataAccess\Builders\IQuery.cs" />
+    <Compile Include="DataAccess\IDatabaseTransaction.cs" />
+    <Compile Include="DataAccess\DataMappers\BoatDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\CustomerDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\DockDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\IDockDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\LeaseDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\RegistrationDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\IBoatDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\ICustomerDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\IDataMapper.cs" />
+    <Compile Include="DataAccess\Exceptions\ObjectAlreadyAddedToIdentityMapException.cs" />
+    <Compile Include="DataAccess\DataMappers\IRegistrationDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\ILeaseDataMapper.cs" />
+    <Compile Include="DataAccess\Repositories\CustomerRepository.cs" />
+    <Compile Include="DataAccess\Repositories\DockRepository.cs" />
+    <Compile Include="DataAccess\DataMappers\ISlipDataMapper.cs" />
+    <Compile Include="DataAccess\DataMappers\SlipDataMapper.cs" />
+    <Compile Include="DataAccess\Schemas\AuthorizationTable.cs" />
+    <Compile Include="DataAccess\Schemas\BoatTable.cs" />
+    <Compile Include="DataAccess\Schemas\CustomerTable.cs" />
+    <Compile Include="DataAccess\Schemas\DockTable.cs" />
+    <Compile Include="DataAccess\Schemas\LeaseTable.cs" />
+    <Compile Include="DataAccess\Schemas\LeaseType.cs" />
+    <Compile Include="DataAccess\Schemas\LocationTable.cs" />
+    <Compile Include="DataAccess\Schemas\SlipTable.cs" />
+    <Compile Include="DataAccess\DatabaseTransaction.cs" />
+    <Compile Include="Domain\Boat.cs" />
+    <Compile Include="Domain\BrokenRule.cs" />
+    <Compile Include="Domain\Customer.cs" />
+    <Compile Include="Domain\CustomerRegistration.cs" />
+    <Compile Include="Domain\DateRange.cs" />
+    <Compile Include="Domain\Dock.cs" />
+    <Compile Include="Domain\DomainObject.cs" />
+    <Compile Include="Domain\Interfaces\IBusinessRule.cs" />
+    <Compile Include="Domain\Interfaces\IDateRange.cs" />
+    <Compile Include="Domain\Interfaces\IBoat.cs" />
+    <Compile Include="Domain\Interfaces\IBrokenRule.cs" />
+    <Compile Include="Domain\Interfaces\ICustomer.cs" />
+    <Compile Include="Domain\Interfaces\IDock.cs" />
+    <Compile Include="Domain\Interfaces\IDomainObject.cs" />
+    <Compile Include="Domain\Interfaces\ILeaseDuration.cs" />
+    <Compile Include="Domain\Interfaces\ILeaseType.cs" />
+    <Compile Include="Domain\Interfaces\ILocation.cs" />
+    <Compile Include="Domain\Interfaces\ISlipLease.cs" />
+    <Compile Include="Domain\Interfaces\IUtility.cs" />
+    <Compile Include="Domain\Interfaces\IRange.cs" />
+    <Compile Include="Domain\Interfaces\IRegistration.cs" />
+    <Compile Include="Domain\LeaseDurations.cs" />
+    <Compile Include="Domain\Location.cs" />
+    <Compile Include="Domain\Range.cs" />
+    <Compile Include="Domain\Repositories\ICustomerRepository.cs" />
+    <Compile Include="Domain\Repositories\IDockRepository.cs" />
+    <Compile Include="Domain\Interfaces\ISlip.cs" />
+    <Compile Include="Domain\Repositories\ISlipsRepository.cs" />
+    <Compile Include="DataAccess\Repositories\SlipsRepository.cs" />
+    <Compile Include="Domain\Slip.cs" />
+    <Compile Include="Domain\Exceptions\SlipIsAlreadyLeasedException.cs" />
+    <Compile Include="Domain\SlipLease.cs" />
+    <Compile Include="Domain\UnknownCustomer.cs" />
+    <Compile Include="Domain\Utilities.cs" />
+    <Compile Include="Infrastructure\Configuration\ConfigurationItem.cs" />
+    <Compile Include="Infrastructure\Configuration\ConfigurationItems.cs" />
+    <Compile Include="Infrastructure\Container\Custom\CustomDependencyContainer.cs" />
+    <Compile Include="Infrastructure\Container\Resolve.cs" />
+    <Compile Include="Infrastructure\Container\IDependencyContainer.cs" />
+    <Compile Include="Infrastructure\Container\InterfaceResolutionException.cs" />
+    <Compile Include="Infrastructure\Container\Windsor\WindsorDependencyContainer.cs" />
+    <Compile Include="Infrastructure\EnumerableMapper.cs" />
+    <Compile Include="Infrastructure\IRichEnumerable.cs" />
+    <Compile Include="Infrastructure\IRichList.cs" />
+    <Compile Include="Infrastructure\ISpecificationBuilder.cs" />
+    <Compile Include="Infrastructure\ITransformer.cs" />
+    <Compile Include="Infrastructure\IValueReturningVisitor.cs" />
+    <Compile Include="Infrastructure\IVisitor.cs" />
+    <Compile Include="Infrastructure\ListFactory.cs" />
+    <Compile Include="Infrastructure\Logging\Log4Net\ILog4NetInitializationCommand.cs" />
+    <Compile Include="Infrastructure\Logging\Log4Net\Log4NetInitializationCommand.cs" />
+    <Compile Include="Infrastructure\Logging\Log4Net\Log4NetLogFactory.cs" />
+    <Compile Include="Infrastructure\RichEnumerable.cs" />
+    <Compile Include="Infrastructure\RichList.cs" />
+    <Compile Include="Infrastructure\SpecificationBuilder.cs" />
+    <Compile Include="Infrastructure\Transform.cs" />
+    <Compile Include="Infrastructure\Transformer.cs" />
+    <Compile Include="Presentation\DTO\BoatRegistrationDTO.cs" />
+    <Compile Include="Presentation\DTO\DisplayLeaseDTO.cs" />
+    <Compile Include="Presentation\DTO\DisplayResponseLines.cs" />
+    <Compile Include="Presentation\DTO\LoginCredentialsDTO.cs" />
+    <Compile Include="Presentation\DTO\SubmitLeaseRequestDTO.cs" />
+    <Compile Include="Presentation\Mappers\ILeaseRequestDtoFromHttpRequestMapper.cs" />
+    <Compile Include="Presentation\Mappers\ILoginCredentialsMapper.cs" />
+    <Compile Include="Presentation\Mappers\INewBoatRegistrationMapper.cs" />
+    <Compile Include="Presentation\Mappers\LeaseRequestDtoFromHttpRequestMapper.cs" />
+    <Compile Include="Presentation\Mappers\LoginCredentialsMapper.cs" />
+    <Compile Include="Presentation\Mappers\NewBoatRegistrationMapper.cs" />
+    <Compile Include="Presentation\PayloadKeyNotFoundException.cs" />
+    <Compile Include="Presentation\Presenters\AvailableSlipsPresenter.cs" />
+    <Compile Include="Presentation\Presenters\CurrentLeasesPresenter.cs" />
+    <Compile Include="Presentation\Presenters\DockPresenter.cs" />
+    <Compile Include="Presentation\DTO\CustomerRegistrationDisplayDTO.cs" />
+    <Compile Include="Presentation\DTO\DockDisplayDTO.cs" />
+    <Compile Include="Presentation\DTO\SlipDisplayDTO.cs" />
+    <Compile Include="Presentation\DTO\UpdateCustomerRegistrationDTO.cs" />
+    <Compile Include="Presentation\Presenters\IAvailableSlipsPresenter.cs" />
+    <Compile Include="Presentation\Presenters\ICurrentLeasesPresenter.cs" />
+    <Compile Include="Presentation\Presenters\IDockPresenter.cs" />
+    <Compile Include="Presentation\Mappers\CustomerRegistrationPresentationMapper.cs" />
+    <Compile Include="Presentation\Mappers\ICustomerRegistrationPresentationMapper.cs" />
+    <Compile Include="Infrastructure\IMapper.cs" />
+    <Compile Include="Infrastructure\Logging\Interfaces\ILog.cs" />
+    <Compile Include="Infrastructure\Logging\Interfaces\ILogFactory.cs" />
+    <Compile Include="Infrastructure\Logging\Interfaces\Log.cs" />
+    <Compile Include="Infrastructure\Logging\Log4Net\Log4NetLog.cs" />
+    <Compile Include="Infrastructure\Logging\TextWriterLogging\TextWriterLog.cs" />
+    <Compile Include="Infrastructure\Logging\TextWriterLogging\TextWriterLogFactory.cs" />
+    <Compile Include="Presentation\Presenters\CustomerRegistrationPresenter.cs" />
+    <Compile Include="Presentation\DTO\DisplayResponseLineDTO.cs" />
+    <Compile Include="Presentation\DTO\RegisterCustomerDTO.cs" />
+    <Compile Include="Presentation\Presenters\ICustomerRegistrationPresenter.cs" />
+    <Compile Include="Presentation\Mappers\IUpdateRegistrationPresentationMapper.cs" />
+    <Compile Include="Presentation\Mappers\UpdateRegistrationPresentationMapper.cs" />
+    <Compile Include="Presentation\PayloadKey.cs" />
+    <Compile Include="Presentation\PayLoadKeys.cs" />
+    <Compile Include="Presentation\Presenters\ILeaseSlipPresenter.cs" />
+    <Compile Include="Presentation\Presenters\ILoginPresenter.cs" />
+    <Compile Include="Presentation\Presenters\IRegisterBoatPresenter.cs" />
+    <Compile Include="Presentation\Presenters\IUpdateCustomerRegistrationPresenter.cs" />
+    <Compile Include="Presentation\Presenters\IViewRegisteredBoatsPresenter.cs" />
+    <Compile Include="Presentation\Presenters\LeaseSlipPresenter.cs" />
+    <Compile Include="Presentation\Presenters\LoginPresenter.cs" />
+    <Compile Include="Presentation\Presenters\RegisterBoatPresenter.cs" />
+    <Compile Include="Presentation\Presenters\UpdateCustomerRegistrationPresenter.cs" />
+    <Compile Include="Presentation\Presenters\ViewRegisteredBoatsPresenter.cs" />
+    <Compile Include="Presentation\Views\IAvailableSlipsView.cs" />
+    <Compile Include="Presentation\Views\ICurrentLeasesView.cs" />
+    <Compile Include="Presentation\Views\ICustomerRegistrationView.cs" />
+    <Compile Include="Presentation\Views\IDockView.cs" />
+    <Compile Include="Presentation\Views\ILeaseSlipView.cs" />
+    <Compile Include="Presentation\Views\ILoginView.cs" />
+    <Compile Include="Presentation\Views\IRegisterBoatView.cs" />
+    <Compile Include="Presentation\Views\IRegisteredBoatsView.cs" />
+    <Compile Include="Presentation\Views\IUpdateRegistrationView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task\ApplicationStartupTask.cs" />
+    <Compile Include="Task\AuthenticationTask.cs" />
+    <Compile Include="Task\CatalogTasks.cs" />
+    <Compile Include="Task\IApplicationStartupTask.cs" />
+    <Compile Include="Task\IAuthenticationTask.cs" />
+    <Compile Include="Task\ILeaseTasks.cs" />
+    <Compile Include="Task\IRegistrationTasks.cs" />
+    <Compile Include="Task\ICatalogTasks.cs" />
+    <Compile Include="Task\LeaseTasks.cs" />
+    <Compile Include="Task\Mappers\BrokenRulesToDisplayItemMapper.cs" />
+    <Compile Include="Task\Mappers\DockToDisplayDTOMapper.cs" />
+    <Compile Include="Task\Mappers\IBrokenRulesToDisplayItemMapper.cs" />
+    <Compile Include="Task\Mappers\IDockToDisplayDTOMapper.cs" />
+    <Compile Include="Task\Mappers\ILeaseToDtoMapper.cs" />
+    <Compile Include="Task\Mappers\ISlipsToDisplayDTOMapper.cs" />
+    <Compile Include="Task\Mappers\LeaseToDtoMapper.cs" />
+    <Compile Include="Task\Mappers\SlipsToDisplayDTOMapper.cs" />
+    <Compile Include="Task\RegistrationTasks.cs" />
+    <Compile Include="Web\AuthenticationHttpModule.cs" />
+    <Compile Include="Web\Commands\AvailableSlipsCommand.cs" />
+    <Compile Include="Web\Commands\CommandNames.cs" />
+    <Compile Include="Web\Commands\RedirectCommand.cs" />
+    <Compile Include="Web\Handlers\AvailableSlipsHandler.cs" />
+    <Compile Include="Infrastructure\BlankCommand.cs" />
+    <Compile Include="Web\Handlers\Dispatcher.cs" />
+    <Compile Include="Web\FrontController.cs" />
+    <Compile Include="Web\Handlers\RequestHandler.cs" />
+    <Compile Include="Web\Handlers\RequestHandlerSpecification.cs" />
+    <Compile Include="Web\Http\HttpGateway.cs" />
+    <Compile Include="Infrastructure\ICommand.cs" />
+    <Compile Include="Infrastructure\IFactory.cs" />
+    <Compile Include="Web\Http\IHttpGateway.cs" />
+    <Compile Include="Web\Handlers\IRegisteredHandlers.cs" />
+    <Compile Include="Web\Handlers\IRequestHandler.cs" />
+    <Compile Include="Infrastructure\ISpecification.cs" />
+    <Compile Include="Web\Services\AuthenticationWebServices.cs" />
+    <Compile Include="Web\Services\CatalogWebServices.cs" />
+    <Compile Include="Web\Services\LeaseWebServices.cs" />
+    <Compile Include="Web\Services\RegistrationWebServices.cs" />
+    <Compile Include="Web\UnhandledExceptionsHttpModule.cs" />
+    <Compile Include="Web\Views\IView.cs" />
+    <Compile Include="Web\Views\IViewLuggageTransporter.cs" />
+    <Compile Include="Web\Views\IViewLuggageTicket.cs" />
+    <Compile Include="Web\Handlers\RegisteredHandlers.cs" />
+    <Compile Include="Web\Views\IWebView.cs" />
+    <Compile Include="Web\Views\Pages\AvailableSlipsWebView.cs" />
+    <Compile Include="Web\Views\Pages\IAvailableSlipsWebView.cs" />
+    <Compile Include="Web\Views\View.cs" />
+    <Compile Include="Web\Views\ViewLuggage.cs" />
+    <Compile Include="Web\Views\ViewLuggageTickets.cs" />
+    <Compile Include="Web\Redirect.cs" />
+    <Compile Include="Web\Views\ViewLuggageTransporter.cs" />
+    <Compile Include="Web\Views\WebView.cs" />
+    <Compile Include="Web\Views\WebViews.cs" />
+    <Compile Include="Web\CurrentHttpRequest.cs" />
+    <Compile Include="Web\GlobalApplication.cs" />
+    <Compile Include="Web\CurrentHttpContext.cs" />
+    <Compile Include="Web\IHttpRequest.cs" />
+    <Compile Include="Web\IHttpContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web\Services\AuthenticationServices.asmx" />
+    <Content Include="Web\Services\CatalogServices.asmx" />
+    <Content Include="Web\Services\RegistrationServices.asmx" />
+    <Content Include="Web\Services\LeaseServices.asmx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

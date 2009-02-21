@@ -1,0 +1,5 @@
+﻿use [@initial.catalog@];
+GO
+INSERT INTO Location(LocationName) VALUES('Inland Lake')
+INSERT INTO Location(LocationName) VALUES('Sab Diego')
+GO

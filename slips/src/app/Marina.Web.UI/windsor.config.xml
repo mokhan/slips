@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<components>
+		<component id="ILogFactory"
+				   service="Marina.Infrastructure.Logging.Interfaces.ILogFactory, Marina"
+				   type="Marina.Infrastructure.Logging.Log4Net.Log4NetLogFactory, Marina" />
+
+		<component id="ILoginCredentialsMapper"
+				   service="Marina.Presentation.Mappers.ILoginCredentialsMapper, Marina"
+				   type="Marina.Presentation.Mappers.LoginCredentialsMapper, Marina" />
+
+		<component id="INewBoatRegistrationMapper"
+				   service="Marina.Presentation.Mappers.INewBoatRegistrationMapper, Marina"
+				   type="Marina.Presentation.Mappers.NewBoatRegistrationMapper, Marina" />
+
+		<component id="IUpdateRegistrationPresentationMapper"
+				   service="Marina.Presentation.Mappers.IUpdateRegistrationPresentationMapper, Marina"
+				   type="Marina.Presentation.Mappers.UpdateRegistrationPresentationMapper, Marina" />
+
+		<component id="ICustomerRegistrationPresentationMapper"
+				   service="Marina.Presentation.Mappers.ICustomerRegistrationPresentationMapper, Marina"
+				   type="Marina.Presentation.Mappers.CustomerRegistrationPresentationMapper, Marina" />
+
+		<component id="IAuthenticationTask"
+				   service="Marina.Task.IAuthenticationTask, Marina"
+				   type="Marina.Task.AuthenticationTask, Marina" />
+
+		<component id="ICatalogTasks"
+				   service="Marina.Task.ICatalogTasks, Marina"
+				   type="Marina.Task.CatalogTasks, Marina" />
+
+		<component id="IRegistrationTasks"
+				   service="Marina.Task.IRegistrationTasks, Marina"
+				   type="Marina.Task.RegistrationTasks, Marina" />
+
+		<component id="IDatabaseGateway"
+				   service="Marina.DataAccess.IDatabaseGateway, Marina"
+				   type="Marina.DataAccess.DatabaseGateway, Marina" />
+
+		<component id="IDatabaseConnectionFactory"
+				   service="Marina.DataAccess.IDatabaseConnectionFactory, Marina"
+				   type="Marina.DataAccess.DatabaseConnectionFactory, Marina" />
+
+		<component id="ISlipsRepository"
+				   service="Marina.Domain.Repositories.ISlipsRepository, Marina"
+				   type="Marina.DataAccess.Repositories.SlipsRepository, Marina" />
+
+		<component id="ISlipsToDisplayDTOMapper"
+				   service="Marina.Task.Mappers.ISlipsToDisplayDTOMapper, Marina"
+				   type="Marina.Task.Mappers.SlipsToDisplayDTOMapper, Marina" />
+
+		<component id="IDockRepository"
+				   service="Marina.Domain.Repositories.IDockRepository, Marina"
+				   type="Marina.DataAccess.Repositories.DockRepository, Marina" />
+
+		<component id="IDockToDisplayDTOMapper"
+				   service="Marina.Task.Mappers.IDockToDisplayDTOMapper, Marina"
+				   type="Marina.Task.Mappers.DockToDisplayDTOMapper, Marina" />
+
+		<component id="ICustomerRepository"
+				   service="Marina.Domain.Repositories.ICustomerRepository, Marina"
+				   type="Marina.DataAccess.Repositories.CustomerRepository, Marina" />
+
+		<component id="IBrokenRulesToDisplayItemMapper"
+				   service="Marina.Task.Mappers.IBrokenRulesToDisplayItemMapper, Marina"
+				   type="Marina.Task.Mappers.BrokenRulesToDisplayItemMapper, Marina" />
+
+		<component id="ICustomerDataMapper"
+				   service="Marina.DataAccess.DataMappers.ICustomerDataMapper, Marina"
+				   type="Marina.DataAccess.DataMappers.CustomerDataMapper, Marina" />
+
+		<component id="IBoatDataMapper"
+				   service="Marina.DataAccess.DataMappers.IBoatDataMapper, Marina"
+				   type="Marina.DataAccess.DataMappers.BoatDataMapper, Marina" />
+
+		<component id="ILeaseDataMapper"
+				   service="Marina.DataAccess.DataMappers.ILeaseDataMapper, Marina"
+				   type="Marina.DataAccess.DataMappers.LeaseDataMapper, Marina" />
+
+		<component id="IRegistrationDataMapper"
+				   service="Marina.DataAccess.DataMappers.IRegistrationDataMapper, Marina"
+				   type="Marina.DataAccess.DataMappers.RegistrationDataMapper, Marina" />
+
+		<component id="IDockDataMapper"
+				   service="Marina.DataAccess.DataMappers.IDockDataMapper, Marina"
+				   type="Marina.DataAccess.DataMappers.DockDataMapper, Marina" />
+
+		<component id="ISlipDataMapper"
+				   service="Marina.DataAccess.DataMappers.ISlipDataMapper, Marina"
+				   type="Marina.DataAccess.DataMappers.SlipDataMapper, Marina" />
+
+		<component id="IHttpGateway"
+				   service="Marina.Web.Http.IHttpGateway, Marina"
+				   type="Marina.Web.Http.HttpGateway, Marina" />
+
+		<component id="IHttpContext"
+				   service="Marina.Web.IHttpContext, Marina"
+				   type="Marina.Web.CurrentHttpContext, Marina" />
+
+		<component id="IHttpRequest"
+				   service="Marina.Web.IHttpRequest, Marina"
+				   type="Marina.Web.CurrentHttpRequest, Marina" />
+
+		<component id="ILeaseTasks"
+				   service="Marina.Task.ILeaseTasks, Marina"
+				   type="Marina.Task.LeaseTasks, Marina" />
+
+		<component id="ILeaseToDtoMapper"
+				   service="Marina.Task.Mappers.ILeaseToDtoMapper, Marina"
+				   type="Marina.Task.Mappers.LeaseToDtoMapper, Marina" />
+
+		<component id="ILeaseRequestDtoFromHttpRequestMapper"
+				   service="Marina.Presentation.Mappers.ILeaseRequestDtoFromHttpRequestMapper, Marina"
+				   type="Marina.Presentation.Mappers.LeaseRequestDtoFromHttpRequestMapper, Marina" />
+	</components>
+</configuration>

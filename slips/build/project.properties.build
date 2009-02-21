@@ -1,0 +1,41 @@
+﻿<project name="Marina">
+	<property name="project.name" value="${project::get-name()}"/>
+	<property name="debug" value="true"/>
+
+<!-- START Directory Names -->		
+	<property name="base.dir" value="${directory::get-parent-directory(project::get-base-directory())}" />
+		
+	<property name="src.dir" value="${base.dir}\src" />
+	<property name="app.src.dir" value="${src.dir}\app" />
+	<property name="app.src.web.ui.dir" value="${app.src.dir}\Marina.Web.UI" />
+	<property name="test.src.dir" value="${src.dir}\test" />
+
+	<property name="build.dir" value="${base.dir}\build" />
+	<property name="build.temp.dir" value="${build.dir}\temp" />
+	<property name="build.deploy.dir" value="${build.dir}\deploy" />
+	<property name="build.config.dir" value="${build.dir}\config" />
+	<property name="build.tools.dir" value="${build.dir}\tools" />
+	<property name="build.lib.dir" value="${build.dir}\lib" />
+<!-- END Directory Names -->	
+	
+	<!-- START File Names -->	
+	<property name="app.lib" value="${project.name}.dll"/>
+	<property name="test.lib" value="${project.name}.Test.dll"/>	
+	<property name="app.config" value="${build.config.dir}\app.config"/>		
+	<property name="windsor.config" value="${build.config.dir}\windsor.config.xml"/>		
+	<!-- END File Names -->
+
+	<!-- xunit properties -->
+	<property name="path.xunit.console" value="${build.tools.dir}\mbunit\bin\MBUnit.Cons.exe"/>
+	<property name="xunit.console.args" value="/sr /report-type:Text /rf:${build.dir} /rnf:Report" />
+	<property name="xunit.console.args.html" value="/sr /report-type:Html /rf:${build.dir} /rnf:Report" />
+	<!-- xunit properties -->
+
+	<!-- logging properties -->
+	<property name="log.dir" value="${build.dir}\logs"/>
+	<property name="log.file.name" value="${log.dir}\log.txt"/>
+	<property name="log.level" value="DEBUG"/>
+	<property name="log4net.config" value="${build.config.dir}\log4net.config.xml" />
+	<property name="path.to.runtime.log4net.config" value="${log4net.config}" />
+	<!-- logging properties -->
+</project>
